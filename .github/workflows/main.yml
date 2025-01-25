@@ -26,6 +26,4 @@ jobs:
       # Step 3: Sync files to S3, excluding the GitHub workflow directory
       - name: Sync files to S3
         run: |
-          aws s3 sync . s3://${{ secrets.S3_BUCKET_NAME }}/ --delete \
-          --exclude ".github/*" \
-          --exclude ".git/*"
+          aws s3 sync ./_site/* s3://${{ secrets.S3_BUCKET_NAME }}/ --delete
